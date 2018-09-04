@@ -1,0 +1,65 @@
+<html>
+
+<head>
+	
+	<title></title>
+
+</head>
+
+<body>
+
+	<div id="root">
+
+		<li class="dropdown" v-if="notifications.length">
+
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				<span></span>
+			</a>
+
+			<ul class="dropdown-menu">
+
+				<li v-for="notification in notifications">
+					<a href="#">{{ notification }}</a>
+				</li>
+
+			</ul>
+		</li>
+
+		<input id="input" type="text" v-model="newNotification">
+
+		<button @click="addNotification">Add Notication</button>
+	
+	</div>
+
+	<script src="https://unpkg.com/vue@2.5.17/dist/vue.js"></script>
+
+	<script>
+
+		new Vue({
+			el: '#root',
+
+			data: {
+
+				newNotification: '',
+
+				notifications: []
+
+			},
+
+			methods: {
+
+				addNotification() {
+					//alert('test');
+					this.notifications.push(this.newNotification);
+					this.newNotification = '';
+				}
+
+			},
+
+		})
+
+	</script>
+
+</body>
+
+</html>
